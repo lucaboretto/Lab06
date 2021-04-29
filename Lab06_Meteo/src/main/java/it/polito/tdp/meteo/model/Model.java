@@ -44,7 +44,7 @@ public class Model {
 		}
 		
 		boolean spostamento = false;
-		int contaGiorniFermo = 0;
+		int contaGiorniFermo = 1;
 		
 		ricorsione(0, parziale, 0, citta, spostamento, contaGiorniFermo);
 		
@@ -74,7 +74,7 @@ public class Model {
 		}else {
 			for(Citta c: citta) {
 				if(c.getCounter()<this.NUMERO_GIORNI_CITTA_MAX) {   //citta ancora disponibile
-					if(contaGiorniFermo < this.NUMERO_GIORNI_CITTA_CONSECUTIVI_MIN) {
+					if(contaGiorniFermo <= this.NUMERO_GIORNI_CITTA_CONSECUTIVI_MIN) {
 						//ricorsione da fermo
 						costo += c.getRilevamenti().get(livello).getUmidita();
 						contaGiorniFermo++;
@@ -96,7 +96,7 @@ public class Model {
 							parziale.add(c);
 							c.setCounter(c.getCounter()+1);
 							ricorsione(livello+1, parziale, costo, citta, spostamento, contaGiorniFermo);
-					}
+						}
 					}
 					//backtracking
 						
