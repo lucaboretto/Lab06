@@ -8,18 +8,28 @@ public class Citta {
 	private String nome;
 	private List<Rilevamento> rilevamenti;
 	private int counter = 0;
-	
+	private int contaGiorniDiFila;
 	
 	
 	public Citta(String nome) {
 		this.nome = nome;
+		this.contaGiorniDiFila = 0;
 	}
 	
 	public Citta(String nome, List<Rilevamento> rilevamenti) {
 		this.nome = nome;
 		this.rilevamenti = rilevamenti;
+		this.contaGiorniDiFila = 0;
 	}
 
+	public int getContaGiorniFermoDiFila() {
+		return this.contaGiorniDiFila;
+	}
+	
+	public void addContaGiorniFermoDiFila() {
+		this.contaGiorniDiFila++;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
